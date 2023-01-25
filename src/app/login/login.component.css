@@ -28,19 +28,19 @@ body {
 
 }
 .sign-in{
-    
+    border-radius: 2rem;
     text-align: center;
     width: 20vw;
     padding: 1rem;
     margin: 2rem;
-    background-color: rgb(51, 51, 51, 0.602);
+    background-color: rgba(102, 102, 102, 0.602);
 }
 .sign-in .form-check-input{
     position: relative;
     right: -90px;
     top: 5px;
     margin: right 0px;
-   background-color: rgb(51, 51, 51, 0.602);
+   background-color: rgba(102, 102, 102, 0.602);
    border-color: red;
 }
 .form-text{
@@ -78,8 +78,13 @@ body {
     margin-bottom: 2rem;
 }
 .sign-in .form-control::placeholder{
-    color: rgb(121, 121, 121);
+    color: rgb(185, 185, 185);
 }
 .sign-in input[type='checkbox']:checked{
     background-color: red;
+}
+.sign-in .loginImg{
+    border-radius: 20rem;
+    width: 150px;
+    height: 150px;
 }
