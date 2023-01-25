@@ -68,7 +68,7 @@ body {
 }
 .sign-in .form-control{
     display: block;
-   
+   color: white;
     background-color: transparent;
     border: none;
     border-bottom: white thin solid;
