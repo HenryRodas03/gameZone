@@ -1,0 +1,18 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">correo</th>
+        <th scope="col">Contraseña</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let us of users ">
+        <th scope="row">{{us.id}}</th>
+        <td>{{us.nombre}}</td>
+        <td>{{us.correo}}</td>
+        <td>{{us.contrasena}}</td>
+      </tr>
+    </tbody>
+  </table>
