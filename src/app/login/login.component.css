@@ -17,12 +17,12 @@ body {
 }
 .titles{
     color:red;
-    margin-bottom: 15px;
+    margin-bottom: 2rem;
 }
 .sign-in{
     border-radius: 2rem;
     text-align: center;
-    width: 20vw;
+    width: 21rem;
     padding: 1rem;
     margin: 2rem;
     background-color: rgba(102, 102, 102, 0.602);

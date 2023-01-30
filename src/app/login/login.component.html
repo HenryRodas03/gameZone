@@ -4,20 +4,20 @@
 <div class="loginContainer">
   
   <div >
-    <form class="sign-in">
+    <form [formGroup]="validatorForm" class="sign-in">
         <img src="../../assets/loginImgs/logo.png" class="loginImg">
         <h1 class="titles">Bienvenido</h1>
         <div class="mb-3">
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+          <input formControlName="correo" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
         </div>
         <div class="mb-3">
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+          <input formControlName="contrasena" type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
         </div>
         <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" id="rememberCheck">
           <label class="form-check-label" for="exampleCheck1">Recordar mis datos</label>
         </div>
-        <button  routerLink="/principal" class="btn" >Ingresar</button>
+        <button (click)="validation()" class="btn" >Ingresar</button>
         
       </form>
   </div>

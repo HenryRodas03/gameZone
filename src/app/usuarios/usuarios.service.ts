@@ -14,7 +14,7 @@ export class UsuariosService {
   }
 
   sendData(user:any){
-    this.http.post(`${this.url}insert.php`,JSON.stringify(user));
+    return this.http.post(`${this.url}insert.php`,JSON.stringify(user));
   }
 
 }

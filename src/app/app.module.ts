@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import { PrincipalComponent } from './principal/principal.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -20,7 +21,9 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
