@@ -15,6 +15,14 @@ export class UsuariosService {
 
   sendData(user:any){
     return this.http.post(`${this.url}insert.php`,JSON.stringify(user));
+  
   }
+  updateData(user:any){
+    return this.http.post(`${this.url}update.php`,JSON.stringify(user));
+  }
+  deleteData(user:any){
+    return this.http.post(`${this.url}delete.php`,JSON.stringify(user));
+  }
+  
 
 }
