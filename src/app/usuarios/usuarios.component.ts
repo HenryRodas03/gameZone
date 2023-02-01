@@ -42,7 +42,8 @@ export class UsuariosComponent implements OnInit {
     sendData(){
       if (this.userForm.invalid) {
         alert('Todos los campos son obligatorios')
-      } else {
+      } else 
+      {
         this.usuariosService.sendData(this.userForm.value).subscribe((datos:any) => {
           if (datos['resultado']=='OK') {
             alert(datos['mensaje']);
@@ -50,8 +51,7 @@ export class UsuariosComponent implements OnInit {
             this.resetInput();
           }
         }); 
-      }
-      
+      }      
     }
     resetInput() {
       this.userForm.reset({ nombre: "", correo:"",contrasena:""})
@@ -63,6 +63,10 @@ export class UsuariosComponent implements OnInit {
     }
 
     updateData(){
+      if (this.userForm.invalid) {
+        alert('Todos los campos deben ser validos')
+      }else
+      {
         this.usuariosService.updateData(this.userForm.value).subscribe((datos:any) => {
           if (datos['resultado']=='OK') {
             alert(datos['mensaje']);
@@ -71,6 +75,7 @@ export class UsuariosComponent implements OnInit {
             this.resetInput();
           }
         }); 
+      }
     }
 
     Cancel(){

@@ -32,14 +32,14 @@ export class LoginComponent /* implements OnInit */{
   } 
 
   showNavL(){
-    localStorage.setItem("showNavL", "0");
+    localStorage.removeItem("showNavL");
     this.P=localStorage.getItem("showNavL")
   }
 
   validation(){
     this.loginService.validation(this.validatorForm.value).subscribe((datos:any)=>{
       if (datos['resultado']=='OK'){
-        this.router.navigate(['/principal']);
+        this.router.navigate(['/navbar/principal']);
         localStorage.setItem("showNavL", "1");
         localStorage.setItem("validate", "1");
       }else{

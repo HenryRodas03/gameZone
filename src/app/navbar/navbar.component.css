@@ -1,0 +1,18 @@
+.logo{
+    border-radius: 20rem;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+}
+#n{
+    margin-bottom: 5rem;
+}
+/* .body{
+    height: 100vh;
+    background-image: url(../../assets/imgs/background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: M#fff;
+    border: 0;
+} */

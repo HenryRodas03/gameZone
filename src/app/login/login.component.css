@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body {
+.body {
     height: 100vh;
     display: flex;
     align-items: center;
@@ -24,7 +24,7 @@ body {
     text-align: center;
     width: 21rem;
     padding: 1rem;
-    margin: 2rem;
+   
     background-color: rgba(102, 102, 102, 0.602);
 }
 .sign-in .form-check-input{

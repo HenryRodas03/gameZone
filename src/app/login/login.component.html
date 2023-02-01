@@ -1,10 +1,9 @@
-<body>
+<div class="body">
     
 
 <div class="loginContainer">
   
   <div >
-    <h1>{{P}}</h1>
     <form [formGroup]="validatorForm" class="sign-in">
         <img src="../../assets/loginImgs/logo.png" class="loginImg">
         <h1 class="titles">Bienvenido</h1>
@@ -20,16 +19,12 @@
             La contraseña tiene un minimo de 8 caracteres
           </div>
         </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="rememberCheck">
-          <label class="form-check-label" for="exampleCheck1">Recordar mis datos</label>
-        </div>
         <button (click)="validation()" class="btn" >Ingresar</button>
         
       </form>
   </div>
 </div>
 
-</body>
+</div>
 
 
