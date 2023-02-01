@@ -29,7 +29,10 @@ export class UsuariosComponent implements OnInit {
 
   ngOnInit() {
         this.getData();
+        
     }
+
+ 
 
     getData(){
       this.usuariosService.return()
@@ -93,7 +96,7 @@ export class UsuariosComponent implements OnInit {
     }
 
 
-    public get f(): any{
+    public get formcontrols(): any{
       return this.userForm.controls;
     }
 }

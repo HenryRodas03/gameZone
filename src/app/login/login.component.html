@@ -4,14 +4,21 @@
 <div class="loginContainer">
   
   <div >
+    <h1>{{P}}</h1>
     <form [formGroup]="validatorForm" class="sign-in">
         <img src="../../assets/loginImgs/logo.png" class="loginImg">
         <h1 class="titles">Bienvenido</h1>
         <div class="mb-3">
-          <input formControlName="correo" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+          <input [class.is-invalid]="formcontrols.correo.touched && formcontrols.correo.errors" formControlName="correo" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+          <div id="validationServerEmailFeedback" class="invalid-feedback">
+            Correo invalido
+          </div>
         </div>
         <div class="mb-3">
-          <input formControlName="contrasena" type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+          <input [class.is-invalid]="formcontrols.contrasena.errors && formcontrols.contrasena.touched" formControlName="contrasena" type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+          <div id="validationServerUsernameFeedback" class="invalid-feedback">
+            La contraseña tiene un minimo de 8 caracteres
+          </div>
         </div>
         <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" id="rememberCheck">

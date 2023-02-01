@@ -29,23 +29,23 @@
 
 <!-- inputs -->
   nombre: <br>
-  <input id="n" type="text" [class.is-invalid]="f.nombre.errors && f.nombre.touched" formControlName="nombre" />
+  <input id="n" type="text" [class.is-invalid]="formcontrols.nombre.errors && formcontrols.nombre.touched" formControlName="nombre" />
   <div id="validationServerUsernameFeedback" class="invalid-feedback">
     Nombre obligatorio
   </div>
   <br>
   correo <br>
-  <input type="text" [class.is-invalid]="f.correo.touched && f.correo.errors" formControlName="correo" />
-  <div id="validationServerUsernameFeedback" class="invalid-feedback">
-    correo bligatorio
+  <input type="text" [class.is-invalid]="formcontrols.correo.touched && formcontrols.correo.errors" formControlName="correo" />
+  <div id="validationServerEmailFeedback" class="invalid-feedback">
+    Correo invalido
   </div>
   <br>
   <div class="row g-3 align-items-center">
     <label for="inputPassword6" class="col-form-label">Contraseña </label>
 
     <div class="col-auto">
-      <input formControlName="contrasena" [class.is-invalid]="f.contrasena.errors || f.touched" type="password"
-        id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+      <input formControlName="contrasena" [class.is-invalid]="formcontrols.contrasena.errors && formcontrols.contrasena.touched" type="password"
+        >
       <div id="validationServerUsernameFeedback" class="invalid-feedback">
         La contraseña debe tener un minimo de 8 caracteres y un maximo de 26
       </div>
@@ -73,7 +73,7 @@
         ¿Seguro que desea borrar la información?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
         <button (click)="rectify()" type="button" class="btn btn-danger" data-bs-dismiss="modal">Borrar</button>
       </div>
     </div>

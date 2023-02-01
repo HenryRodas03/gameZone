@@ -9,27 +9,50 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent{
+export class LoginComponent /* implements OnInit */{
+
+  P:any;
 
   constructor(private loginService: LoginService, private router: Router){}
+
   
- 
+  
 
   continue:boolean=false;
 
 
   validatorForm= new FormGroup({
-  correo: new FormControl('',[Validators.required]),
+  correo: new FormControl('',[Validators.required,Validators.email]),
   contrasena: new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(26)])
   })
+
+   ngOnInit() {
+    this.showNavL();
+    localStorage.removeItem("validate")
+  } 
+
+  showNavL(){
+    localStorage.setItem("showNavL", "0");
+    this.P=localStorage.getItem("showNavL")
+  }
 
   validation(){
     this.loginService.validation(this.validatorForm.value).subscribe((datos:any)=>{
       if (datos['resultado']=='OK'){
         this.router.navigate(['/principal']);
+        localStorage.setItem("showNavL", "1");
+        localStorage.setItem("validate", "1");
       }else{
         alert("Correo o contraseña invalido")
       }
     });
+  }
+
+  
+
+  
+
+  public get formcontrols(): any{
+    return this.validatorForm.controls;
   }
 }
