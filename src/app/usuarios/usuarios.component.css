@@ -4,4 +4,8 @@
    display: table;
     width: 90rem;
 }
+.invalid{
+color: #b02a37;
+font-size: small;
+}
 

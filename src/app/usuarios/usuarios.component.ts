@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from './usuarios.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { PattUtility } from "./../utilities/PattUtility";
 
 @Component({
   selector: 'app-usuarios',
@@ -11,16 +12,14 @@ export class UsuariosComponent implements OnInit {
   users:any;
   id:any;
   showButton=false;
-  updateUser: any;
-  delete=false;
- 
-  
+  pat= new PattUtility;
+ regx = new RegExp(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,26}/)
 
   userForm = new FormGroup({
     id: new FormControl(0),
-    nombre: new FormControl('',[Validators.required]),
-    correo: new FormControl('',[Validators.required,Validators.email]),
-    contrasena: new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(26)])
+    name: new FormControl('',[Validators.required]),
+    email: new FormControl('',[Validators.required,this.pat.emailPat()]),
+    password: new FormControl('',[Validators.required,Validators.pattern(this.regx)])
   })
   
  
@@ -44,9 +43,9 @@ export class UsuariosComponent implements OnInit {
         alert('Todos los campos son obligatorios')
       } else 
       {
-        this.usuariosService.sendData(this.userForm.value).subscribe((datos:any) => {
-          if (datos['resultado']=='OK') {
-            alert(datos['mensaje']);
+        this.usuariosService.sendData(this.userForm.value).subscribe((data:any) => {
+          if (data['resultado']=='OK') {
+            alert(data['mensaje']);
             this.getData();
             this.resetInput();
           }
@@ -54,11 +53,11 @@ export class UsuariosComponent implements OnInit {
       }      
     }
     resetInput() {
-      this.userForm.reset({ nombre: "", correo:"",contrasena:""})
+      this.userForm.reset({ name: "", email:"",password:""})
     }
 
-    seeData(ide:number,nombre:string,correo:string,contrasena:string){
-      this.userForm.reset({ id:ide, nombre: nombre, correo:correo,contrasena:contrasena})
+    seeData(ide:number,name:string,email:string,password:string){
+      this.userForm.reset({ id:ide, name: name, email:email,password:password})
       this.showButton=true;
     }
 
@@ -67,9 +66,9 @@ export class UsuariosComponent implements OnInit {
         alert('Todos los campos deben ser validos')
       }else
       {
-        this.usuariosService.updateData(this.userForm.value).subscribe((datos:any) => {
-          if (datos['resultado']=='OK') {
-            alert(datos['mensaje']);
+        this.usuariosService.updateData(this.userForm.value).subscribe((data:any) => {
+          if (data['resultado']=='OK') {
+            alert(data['mensaje']);
             this.showButton=false;
             this.getData();
             this.resetInput();
@@ -90,14 +89,12 @@ export class UsuariosComponent implements OnInit {
     }
 
      rectify() {
-      this.usuariosService.deleteData(this.id).subscribe((datos:any) => {
-          if (datos['resultado']=='OK') {
-            alert(datos['mensaje']);
-            this.showButton=false;
+      this.usuariosService.deleteData(this.id).subscribe((data:any) => {
+          if (data['resultado']=='OK') {
+            alert(data['mensaje']);
             this.getData();
-            
           }
-        }); 
+        });  
     }
 
 

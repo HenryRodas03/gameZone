@@ -13,13 +13,13 @@
       <tbody>
         <tr *ngFor="let us of users ">
           <th scope="row">{{us.id}}</th>
-          <td>{{us.nombre}}</td>
-          <td>{{us.correo}}</td>
-          <td>{{us.contrasena}}</td>
+          <td>{{us.name}}</td>
+          <td>{{us.email}}</td>
+          <td>{{us.password}}</td>
           <td>
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
               <button data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteData(us.id)" type="button" class="btn btn-danger">Borrar</button>
-              <button (click)="seeData(us.id, us.nombre, us.correo,us.contrasena)" type="button"
+              <button (click)="seeData(us.id, us.name,us.email,us.password)" type="button"
                 class="btn btn-warning">Editar</button>
             </div>
           </td>
@@ -30,25 +30,23 @@
     
     <!-- inputs -->
     nombre: <br>
-    <input id="n" type="text" [class.is-invalid]="formcontrols.nombre.errors && formcontrols.nombre.touched" formControlName="nombre" />
+    <input id="n" type="text" [class.is-invalid]="formcontrols.name.errors && formcontrols.name.touched" formControlName="name" />
     <div id="validationServerUsernameFeedback" class="invalid-feedback">
       Nombre obligatorio
     </div>
     <br>
     correo <br>
-    <input type="text" [class.is-invalid]="formcontrols.correo.touched && formcontrols.correo.errors" formControlName="correo" />
-    <div id="validationServerEmailFeedback" class="invalid-feedback">
+    <input type="text" formControlName="email" />
+    <div *ngIf="formcontrols.email.invalid && formcontrols.email.touched" class="invalid">
       Correo invalido
     </div>
     <br>
     <div class="row g-3 align-items-center">
       <label for="inputPassword6" class="col-form-label">Contraseña </label>
-
       <div class="col-auto">
-        <input formControlName="contrasena" [class.is-invalid]="formcontrols.contrasena.errors && formcontrols.contrasena.touched" type="password"
-          >
-        <div id="validationServerUsernameFeedback" class="invalid-feedback">
-          La contraseña debe tener un minimo de 8 caracteres y un maximo de 26
+        <input formControlName="password" type="password">
+        <div *ngIf="formcontrols.password.invalid && formcontrols.password.touched" class="invalid" >
+          La contraseña debe tener entre 8 y 26 caracteres, debe contener almenos una mayuscula y un numero
         </div>
         <input formControlName="id"  type="text" [hidden]="true">
       </div>

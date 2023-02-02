@@ -17,11 +17,11 @@ const routes: Routes = [
     component: NavbarComponent, canActivate: [PermissionsGuard],
     children:[
       {
-        path: 'usuarios',
+        path: 'users',
         component: UsuariosComponent 
       },
       {
-        path:'principal',
+        path:'home',
         component: PrincipalComponent
       }
     ]

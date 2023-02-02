@@ -5,15 +5,7 @@ import { Component,OnInit } from '@angular/core';
   templateUrl: './principal.component.html',
   styleUrls: ['./principal.component.css']
 })
-export class PrincipalComponent implements OnInit {
+export class PrincipalComponent {
 
-  p:any
-
-  ngOnInit() {
-    this.showNavL();
-  }
-
-  showNavL(){
-   this.p= localStorage.getItem("showNavL"); 
-  }
+  
 }
