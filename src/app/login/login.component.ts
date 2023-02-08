@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService} from "./login.service";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PattUtility } from '../utilities/PattUtility';
 
 @Component({
   selector: 'app-login',
@@ -11,13 +12,14 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit{
 
+  pat= new PattUtility;
 
   constructor(private loginService: LoginService, private router: Router){}
 
 
   validatorForm= new FormGroup({
-  email: new FormControl('',[Validators.required,Validators.email]),
-  password: new FormControl('',[Validators.required,Validators.minLength(8),Validators.maxLength(26)])
+  email: new FormControl('',[Validators.required,Validators.pattern(this.pat.pattern['emailPat'])]),
+  password: new FormControl('',[Validators.required,Validators.pattern(this.pat.pattern['passPat'])])
   })
 
    ngOnInit() {
@@ -34,11 +36,7 @@ export class LoginComponent implements OnInit{
       }
     });
   }
-
   
-
-  
-
   public get formcontrols(): any{
     return this.validatorForm.controls;
   }

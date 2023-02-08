@@ -79,8 +79,9 @@
 .sign-in .form-control:focus{
     box-shadow: 0 0 10px #f00;
 }
-.invalid-feedback{
+.invalid{
     position: relative;
     bottom: 1.5rem;
     color: #ff0000;
+    font-size: small;
 }

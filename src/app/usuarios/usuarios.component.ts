@@ -13,13 +13,12 @@ export class UsuariosComponent implements OnInit {
   id:any;
   showButton=false;
   pat= new PattUtility;
- regx = new RegExp(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,26}/)
 
   userForm = new FormGroup({
     id: new FormControl(0),
     name: new FormControl('',[Validators.required]),
-    email: new FormControl('',[Validators.required,this.pat.emailPat()]),
-    password: new FormControl('',[Validators.required,Validators.pattern(this.regx)])
+    email: new FormControl('',[Validators.required,Validators.pattern(this.pat.pattern['emailPat'])]),
+    password: new FormControl('',[Validators.required,Validators.pattern(this.pat.pattern['passPat'])])
   })
   
  
