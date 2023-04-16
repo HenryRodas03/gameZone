@@ -1,6 +1,6 @@
 <div class="body">
   <form class="table" [formGroup]="userForm">
-    <table id="t" class="table table-dark table-striped">
+    <table class="table table-dark table-striped">
       <thead>
         <tr>
           <th scope="col">ID</th>
@@ -29,34 +29,43 @@
     <br>
     
     <!-- inputs -->
-    nombre: <br>
-    <input id="n" type="text" [class.is-invalid]="formcontrols.name.errors && formcontrols.name.touched" formControlName="name" />
-    <div id="validationServerUsernameFeedback" class="invalid-feedback">
-      Nombre obligatorio
-    </div>
-    <br>
-    correo <br>
-    <input type="text" formControlName="email" />
-    <div *ngIf="formcontrols.email.invalid && formcontrols.email.touched" class="invalid">
-      Correo invalido
-    </div>
-    <br>
-    <div class="row g-3 align-items-center">
-      <label for="inputPassword6" class="col-form-label">Contraseña </label>
-      <div class="col-auto">
-        <input formControlName="password" type="password">
-        <div *ngIf="formcontrols.password.invalid && formcontrols.password.touched" class="invalid" >
-          La contraseña debe tener entre 8 y 26 caracteres, debe contener almenos una mayuscula y un numero
+
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Formulario para agregar</h5>
+        nombre: <br>
+        <input id="n" type="text" [class.is-invalid]="formcontrols.name.errors && formcontrols.name.touched" formControlName="name" />
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+          Nombre obligatorio
         </div>
-        <input formControlName="id"  type="text" [hidden]="true">
+        <br>
+        correo <br>
+        <input type="text" formControlName="email" />
+        <div *ngIf="formcontrols.email.invalid && formcontrols.email.touched" class="invalid">
+          Correo invalido
+        </div>
+        <br>
+        <div class="row g-3 align-items-center">
+          <label for="inputPassword6" class="col-form-label">Contraseña </label>
+          <div class="col-auto">
+            <input formControlName="password" type="password">
+            <div *ngIf="formcontrols.password.invalid && formcontrols.password.touched" class="invalid" >
+              La contraseña debe tener entre 8 y 26 caracteres, debe contener almenos una mayuscula y un numero
+            </div>
+            <input formControlName="id"  type="text" [hidden]="true">
+          </div>
+        </div>
+        <br>
+    
+        <!-- hidden update send and cancel buttons -->
+        <button [hidden]="showButton" (click)="sendData()" type="button" class="btn btn-outline-success">Agregar</button>
+        <button [hidden]="!showButton" (click)="updateData()" type="button" class="btn btn-outline-secondary">guardar cambios</button>
+        <button [hidden]="!showButton" (click)="Cancel()" type="button" class="btn btn-outline-dark">Cancelar</button>
+      
+       
       </div>
     </div>
-    <br>
 
-    <!-- hidden update send and cancel buttons -->
-    <button [hidden]="showButton" (click)="sendData()" type="button" class="btn btn-outline-success">Agregar</button>
-    <button [hidden]="!showButton" (click)="updateData()" type="button" class="btn btn-outline-secondary">guardar cambios</button>
-    <button [hidden]="!showButton" (click)="Cancel()" type="button" class="btn btn-outline-dark">Cancelar</button>
  </form>
 
   <!-- Modal -->

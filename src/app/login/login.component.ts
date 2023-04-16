@@ -28,9 +28,10 @@ export class LoginComponent implements OnInit{
 
   validation(){
     this.loginService.validation(this.validatorForm.value).subscribe((data:any)=>{
-      if (data['resultado']=='OK'){
+      if (data['status']){
         this.router.navigate(['/navbar/home']);
         localStorage.setItem("validate", "1");
+        localStorage.setItem("role",String(data['role']))
       }else{
         alert("Correo o contraseña invalido")
       }

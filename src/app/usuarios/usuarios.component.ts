@@ -9,6 +9,7 @@ import { PattUtility } from "./../utilities/PattUtility";
   styleUrls: ['./usuarios.component.css']
 })
 export class UsuariosComponent implements OnInit {
+  role:any;
   users:any;
   id:any;
   showButton=false;
@@ -27,10 +28,18 @@ export class UsuariosComponent implements OnInit {
 
   ngOnInit() {
         this.getData();
+        this.start();
         
     }
 
- 
+  
+    start(){
+    if (localStorage.getItem("role")=='1') {
+      this.role=true;
+    }else{
+      this.role=false;
+    }
+  }
 
     getData(){
       this.usuariosService.return()

@@ -1,0 +1,16 @@
+<div class="body">
+    <table id="t" class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Correo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let us of users ">
+            <td>{{us.name}}</td>
+            <td>{{us.email}}</td>
+          </tr>
+        </tbody>
+    </table>
+</div>

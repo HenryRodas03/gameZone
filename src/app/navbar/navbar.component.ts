@@ -5,7 +5,20 @@ import { Component,OnInit } from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent  {
-
+export class NavbarComponent implements OnInit  {
+role:any;
   
+ngOnInit(){
+  this.start();
+}
+start(){
+if (localStorage.getItem("role")=='1') {
+  this.role=true;
+}else{
+  this.role=false;
+}
+}
+
+
+
 }

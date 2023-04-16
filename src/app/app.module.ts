@@ -9,6 +9,7 @@ import { PrincipalComponent } from './principal/principal.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
+import { Usuarios2Component } from './usuarios2/usuarios2.component';
 
 
 
@@ -18,7 +19,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     LoginComponent,
     PrincipalComponent,
     UsuariosComponent,
-    NavbarComponent
+    NavbarComponent,
+    Usuarios2Component,
   ],
   imports: [
     BrowserModule,
